@@ -22,7 +22,9 @@ class MemoryTests(unittest.TestCase):
     def setUp(self):
         self.tmp = tempfile.TemporaryDirectory(prefix='webops-memory-test-')
         self.addCleanup(self.tmp.cleanup)
-        self.path = Path(self.tmp.name)/'private'
+        # Windows runners may expose an 8.3 TEMP alias; match Store's resolved
+        # root before installing path-specific metadata mocks.
+        self.path = Path(self.tmp.name).resolve()/'private'
         self.store = Store(self.path)
         self.addCleanup(self.store.close)
         self.task = self.store.create_task('demo', ORIGIN, 'Update a fictional record')

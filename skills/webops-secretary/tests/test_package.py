@@ -22,7 +22,9 @@ class PublicationTests(unittest.TestCase):
     def setUp(self):
         self.temporary = tempfile.TemporaryDirectory()
         self.addCleanup(self.temporary.cleanup)
-        self.base = Path(self.temporary.name)
+        # Match validate()'s canonical paths even when Windows TEMP uses an
+        # 8.3 alias, so path-specific metadata mocks exercise the real guards.
+        self.base = Path(self.temporary.name).resolve()
         self.root = self.base / "skill"
         self.root.mkdir()
         self.names = ["SKILL.md", "package-manifest.json", "examples/form.md"]
