@@ -1,4 +1,4 @@
-"""Check the exact public draft file set offline; never publish or modify Git."""
+"""Check the exact public file set offline; never publish or modify Git."""
 from pathlib import Path
 import ast
 import hashlib
@@ -57,7 +57,7 @@ def check():
         if name.endswith('.md'): issues+=guard._check_links(ROOT,name,data)
         if issues: raise ValueError('\n'.join(issues))
         if name.endswith('.py'): ast.parse(data,filename=name)
-    return {'files':len(names),'skill_files':len(guard.validate(PACKAGE)),'content_checks':'passed','license':'MIT','copyright':COPYRIGHT,'license_copies':'identical; approved normalized hash verified','publication':'not performed; final approval required','limitation':'Heuristic scan and manual provenance audit are not independent proof of all secrets or legal ownership'}
+    return {'files':len(names),'skill_files':len(guard.validate(PACKAGE)),'content_checks':'passed','license':'MIT','copyright':COPYRIGHT,'license_copies':'identical; approved normalized hash verified','publication':'This offline checker performs no public action; publication requires owner authorization','limitation':'Heuristic scan and manual provenance audit are not independent proof of all secrets or legal ownership'}
 
 
 if __name__=='__main__':

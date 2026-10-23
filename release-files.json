@@ -1,6 +1,6 @@
 {
   "name": "db-agent-skills",
-  "status": "licensed-publication-review",
+  "status": "published-source",
   "license": "MIT",
   "files": [
     ".gitattributes",

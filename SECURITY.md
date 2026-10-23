@@ -1,12 +1,12 @@
 # Security and private operational data
 
-This is an MIT-licensed local candidate pending final publication approval. The skill and installer never grant access to sites or override host permissions.
+This is an MIT-licensed public project. The skill and installer never grant access to sites or override host permissions.
 
 ## Reporting a concern
 
-Do not post secrets, private memory, account details, or raw traces in a public issue. Before publication, report findings through the existing private project conversation. A future repository owner should enable GitHub private vulnerability reporting or document another private channel before inviting external reports. No reporting address or service is claimed to exist today.
+Do not post secrets, private memory, account details, raw traces, or confidential vulnerability details in a public issue. A private reporting channel is not currently documented. Arrange a private channel with the maintainer before sharing confidential details; an initial public request for contact must omit those details. This document does not claim that GitHub private vulnerability reporting or another private service is enabled.
 
-Describe the affected candidate version, fictional reproduction steps, expected boundary, and observed result. Include only the minimum sanitized evidence. A security report must not itself disclose a real credential or personal record.
+Describe the affected version, fictional reproduction steps, expected boundary, and observed result. Include only the minimum sanitized evidence. A security report must not itself disclose a real credential or personal record.
 
 ## Authorization boundaries
 
@@ -33,4 +33,4 @@ SQLite storage is local and unencrypted. Windows uses inherited permissions; thi
 
 ## Before a public release
 
-Review the staged file list and archive members; exclude private runtime artifacts. Resolve licensing and ownership, update the validation matrix without overstating host support, and review every externally visible example. Publishing requires a separate explicit user instruction. No publication or visibility change is authorized by this draft.
+Review the staged file list and archive members; exclude private runtime artifacts. Resolve licensing and ownership, update the validation matrix without overstating host support, and review every externally visible example. The initial public publication was explicitly owner-authorized. Future publication actions require applicable authorization; this document grants no access or repository-setting permissions.

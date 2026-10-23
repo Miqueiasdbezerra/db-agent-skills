@@ -1,8 +1,9 @@
 {
   "schema_version": 1,
   "name": "db-agent-skills",
-  "state": "licensed-release-candidate",
-  "publication": "not-published",
+  "state": "published-source",
+  "publication": "published",
+  "repository": "https://github.com/Miqueiasdbezerra/db-agent-skills",
   "license": {
     "status": "owner-approved-applied",
     "effective_license": "MIT",

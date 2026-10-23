@@ -1,6 +1,6 @@
 # Contributing
 
-This repository is an MIT-licensed local release candidate awaiting final public publication approval. Preserve the license and copyright notices for original material and record the terms of third-party contributions.
+This is an MIT-licensed public repository. Preserve the license and copyright notices for original material and record the terms of third-party contributions.
 
 ## Scope
 
@@ -26,4 +26,4 @@ Record external code, assets, and their applicable notices before including them
 
 Review file membership, Markdown links, operational assumptions, security limits, and relevant tests together. Public evidence should state what ran, where it ran, and what remains untested. Do not commit fabricated badges, certification claims, customer claims, or benchmark figures.
 
-Preparing a change or local repository does not authorize a GitHub push, public release, repository creation, or visibility change. Wait for the owner's separate publication instruction after they inspect the final preview.
+The owner explicitly approved the initial publication. Future changes still require the maintainer's review and applicable publication authority; preparing a local change does not itself authorize a push, release, repository creation, or visibility change.

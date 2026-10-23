@@ -1,17 +1,19 @@
-# First publication plan — commands for review, not execution
+# First publication procedure — historical checklist
 
-These commands describe the owner's intended publication after approval. Nothing in this document authorizes execution. Run the repository commands from the root of `db-agent-skills`; keep the separate reviewed profile at `../drafts/PROFILE-README.md`.
+The owner explicitly approved the initial public publication, completed on 2026-10-23. The initial library commit is [abc35f5](https://github.com/Miqueiasdbezerra/db-agent-skills/commit/abc35f516c4c5b11f584792b955e4d00c876dc63); the separately approved profile update is [dcc0b61](https://github.com/Miqueiasdbezerra/MiqueiasdBezerra/commit/dcc0b61). No existing repository visibility was changed.
+
+The commands below retain the reviewed first-publication procedure as a historical checklist, not a verbatim execution transcript or a procedure to rerun on the now-published repository. They assume the original unpublished local state; the repository and remotes now exist. Nothing in this document grants authority for a new publication or account operation.
 
 ## Approval gates
 
 1. Completed locally: the owner confirmed `Copyright (c) 2026 Miqueias Durans Bezerra` and authorized MIT for original project material. The component audit found no conflicting bundled license; it relies on the owner's authorship statement rather than independent legal title verification.
 2. Completed locally: apply the confirmed MIT to root `LICENSE`, `skills/webops-secretary/LICENSE` and the canonical skill source; update both allowlists, documentation and catalog; regenerate licensed archives and hashes. The delivery manifest identifies the resulting bytes.
-3. Pending: review those licensed bytes and hashes and obtain explicit approval for creating the public repository, pushing those files and replacing the profile README. License authorization does not authorize these public actions.
-4. Verify GitHub authentication, commit attribution and repository name immediately before the approved action. If anything differs from the approved snapshot or account, stop and review it. No visibility change to an existing repository is planned.
+3. Completed: the owner reviewed the licensed package and explicitly authorized creating the public library, pushing the approved files and replacing the profile README. License authorization alone was not treated as authority for those public actions.
+4. Completed: verify GitHub authentication, commit attribution and repository name immediately before the approved action. The intended account was used; no existing repository visibility was changed.
 
-The GitHub CLI (`gh`) was not available during preparation. It must be installed from its official distribution and authenticated through the normal browser/device flow before the following plan can run. This prerequisite has not been performed. Do not put a token in a command, file or log.
+The GitHub CLI (`gh`) was initially unavailable. The official CLI and normal browser/device authentication were subsequently used; the user completed GitHub authorization. Do not put a token in a command, file or log.
 
-After that separately reviewed installation, normal interactive authentication would use:
+The reviewed normal interactive authentication command was:
 
 ```powershell
 gh auth login --hostname github.com --git-protocol https --web
@@ -89,11 +91,11 @@ git ls-remote origin refs/heads/main
 Check-Exit
 ```
 
-`gh repo create` fails if the name is unavailable; do not fall back to modifying an existing repository. The command-specific credential helper uses the already authenticated CLI without changing the global Git configuration or printing a token. Local draft preparation has made no commit and created no remote.
+`gh repo create` fails if the name is unavailable; do not fall back to modifying an existing repository. The command-specific credential helper uses the already authenticated CLI without changing the global Git configuration or printing a token. The initial publication created the new library remote and pushed its approved initial commit.
 
 ## Profile README — separate approved public change
 
-The reviewed profile already contains the intended library and validation URLs. They are prospective links in a local preview, not evidence that the repository is public. Only after those URLs exist and the exact profile bytes are approved, copy that unchanged preview:
+The approved profile contained the intended library and validation URLs. Those URLs now point to the public library. The following retained checklist required verifying those destinations and the exact approved profile bytes before copying the preview:
 
 ```powershell
 gh repo clone Miqueiasdbezerra/MiqueiasdBezerra ../profile-publication

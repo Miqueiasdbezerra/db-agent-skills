@@ -2,7 +2,9 @@
 
 Skills reutilizáveis para agentes, com limites de autorização, memória operacional privada e verificações reproduzíveis.
 
-**Candidato local licenciado sob MIT. A publicação pública aguarda a aprovação final do titular.** A versão 1.0.0 identifica este pacote preparado, ainda sem release publicado no GitHub.
+**Código público licenciado sob MIT, publicado com aprovação do titular em 2026-10-23.** A WebOps Secretary está na versão 1.0.0; publicar o código é diferente de criar um GitHub Release com tag.
+
+[![Validação](https://github.com/Miqueiasdbezerra/db-agent-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/Miqueiasdbezerra/db-agent-skills/actions/workflows/validate.yml)
 
 [English](README.md) · [Evidências de validação](docs/validation.md) · [Segurança](SECURITY.md) · [Contribuições](CONTRIBUTING.md) · [Licença](LICENSE) · [Registro de licenciamento](docs/LICENSE-PROPOSAL.md)
 
@@ -10,7 +12,7 @@ Skills reutilizáveis para agentes, com limites de autorização, memória opera
 
 | Skill | Versão | Objetivo | Situação |
 | --- | --- | --- | --- |
-| [WebOps Secretary](skills/webops-secretary/README.md) | 1.0.0 | Administração web autorizada com checkpoints persistentes e reconciliação de resultados | Validada dentro dos limites documentados; aprovação de publicação pendente |
+| [WebOps Secretary](skills/webops-secretary/README.md) | 1.0.0 | Administração web autorizada com checkpoints persistentes e reconciliação de resultados | Publicada; validada dentro dos limites documentados |
 
 A WebOps Secretary orienta navegação, localização de informações, formulários, uploads, edição de registros, recuperação e retomada. O agente consulta o estado atual, registra a intenção antes de alterar algo, verifica o resultado persistido e melhora procedimentos privados.
 
@@ -36,7 +38,7 @@ Resultados locais de 2026-10-23. O [registro de validação](docs/validation.md)
 | Codex CLI independente 0.162.0-alpha.17.2 | App-server identificou a skill habilitada no repositório; sessões do modelo leram instruções e referências | O sandbox do Windows bloqueou a execução Python; os utilitários não foram validados nesse CLI |
 | Suítes locais | 102 testes executados: 99 aprovados, 3 ignorados, sem falhas/erros | 73 testes da skill (70 aprovados, 3 ignorados), 17 do repositório (14 do instalador, 3 de integridade da licença) e 12 de HTTP real |
 
-Os três ignorados exigem symlinks reais no Windows. Seis testes portáveis de metadados e dois testes com junctions reais do Windows passaram; complementam a cobertura sem comprovar a execução dos casos de symlink. O CI remoto ainda não executou. Os resultados não comprovam compatibilidade completa em qualquer ambiente; as permissões dos hospedeiros foram preservadas durante a validação.
+Os três ignorados locais exigem symlinks reais no Windows. Seis testes portáveis de metadados e dois testes com junctions reais do Windows passaram; complementam a cobertura sem comprovar a execução dos casos de symlink. O CI remoto já executou: o primeiro job Ubuntu/Python 3.10 executou 102 testes, com 100 aprovados e dois casos de junction exclusivos do Windows ignorados; o job Windows revelou um problema de caminho temporário nas fixtures. Consulte o [registro de validação](docs/validation.md) e o [estado atual do workflow](https://github.com/Miqueiasdbezerra/db-agent-skills/actions/workflows/validate.yml) para a correção e os resultados posteriores. Os resultados não comprovam compatibilidade completa em qualquer ambiente; as permissões dos hospedeiros foram preservadas durante a validação.
 
 ## Instalação em um único projeto
 
@@ -90,7 +92,7 @@ python -B -m unittest discover -s examples/local-demo -p test_server.py -v
 
 Os testes usam cenários fictícios isolados. A criação de symlinks pode ser indisponível no Windows; esses testes continuam marcados como ignorados. Testes portáveis com metadados verificam a lógica de bloqueio, e os testes de junctions acrescentam verificação real do sistema de arquivos. O [relatório](docs/validation.md) registra resultados e limitações exatos.
 
-O [workflow de CI](.github/workflows/validate.yml) está preparado para Windows e Linux. Isso não significa que uma execução remota já ocorreu. Revise os arquivos efetivamente preparados e os membros do ZIP antes de publicar; `.gitignore` não remove dados já rastreados.
+O [workflow de CI](.github/workflows/validate.yml) executa no Windows e no Linux. Consulte os [resultados reais dos jobs](https://github.com/Miqueiasdbezerra/db-agent-skills/actions/workflows/validate.yml); um badge ou arquivo de workflow sozinho não comprova compatibilidade dos hospedeiros. Revise os arquivos e os membros do ZIP antes de distribuir alterações; `.gitignore` não remove dados já rastreados.
 
 ## Organização
 
@@ -99,10 +101,10 @@ O [workflow de CI](.github/workflows/validate.yml) está preparado para Windows 
 - `scripts/install_skill.py` e `tests/`: instalador por projeto e testes de seus limites.
 - `docs/validation.md`: evidências, limitações e pendências.
 - `docs/LICENSE-PROPOSAL.md`: registro da decisão MIT e da procedência.
-- `catalog.json`: inventário do candidato em formato legível por ferramentas.
+- `catalog.json`: inventário das skills em formato legível por ferramentas.
 
 ## Licença e publicação
 
-O material original do projeto está licenciado sob [MIT](LICENSE). Copyright (c) 2026 Miqueias Durans Bezerra. A skill independente inclui uma cópia idêntica da licença. A aplicação local foi autorizada; a publicação pública continua dependente de aprovação final separada. Os [avisos de terceiros](THIRD_PARTY_NOTICES.md) distinguem o material autoral dos runtimes e serviços externos.
+O material original do projeto está licenciado sob [MIT](LICENSE). Copyright (c) 2026 Miqueias Durans Bezerra. A skill independente inclui uma cópia idêntica da licença. O titular autorizou a aplicação da licença e a publicação pública inicial. Os [avisos de terceiros](THIRD_PARTY_NOTICES.md) distinguem o material autoral dos runtimes e serviços externos.
 
-Esta prévia prepara um futuro repositório público. Ela não cria ou publica repositórios, muda sua visibilidade nem autoriza operações em contas de terceiros.
+A publicação desta biblioteca não autoriza operações nas contas de terceiros. Cada tarefa web exige autorização para seu destino e seus efeitos.

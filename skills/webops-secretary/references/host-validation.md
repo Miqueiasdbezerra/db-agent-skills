@@ -1,6 +1,6 @@
 # Observed host validation — 2026-10-23
 
-This is a bounded compatibility record for version 1.0.0 before publication. Browser capabilities, permissions and runtime access are supplied by the host; this skill does not install or unlock them.
+This is a bounded compatibility record for version 1.0.0, first published with owner approval on 2026-10-23. Browser capabilities, permissions and runtime access are supplied by the host; this skill does not install or unlock them.
 
 | Environment | Observed evidence | Limit |
 |---|---|---|
@@ -19,7 +19,9 @@ All mutations targeted a loopback-only demonstration service with synthetic data
 
 ## Symbolic links and portable alternatives
 
-Three tests require OS privilege to create real symbolic links. They remain explicitly skipped on this Windows installation. Two actual Windows junction tests exercise reparse-point rejection. Six additional portable tests inject symlink/reparse metadata and check refusal of real helper/packaging flows without relying on link-creation privilege. These alternatives test guard behavior; they do not turn an unavailable real-symlink test into a pass. The prepared Linux CI workflow is configured to run the actual symlink cases when the runner permits them; no hosted CI execution is claimed.
+Three tests require OS privilege to create real symbolic links. They remain explicitly skipped on the original local Windows installation. Two actual Windows junction tests exercise reparse-point rejection. Six additional portable tests inject symlink/reparse metadata and check refusal of real helper/packaging flows without relying on link-creation privilege. These alternatives test guard behavior; they do not turn an unavailable real-symlink test into a pass. The initial hosted Ubuntu/Python 3.10 job passed the actual symlink cases and skipped two Windows-only junction tests. The initial hosted Windows job exposed an 8.3 temporary-path fixture comparison issue; the correction resolves only fixture paths, preserving runtime guards. See the [repository validation record](https://github.com/Miqueiasdbezerra/db-agent-skills/blob/main/docs/validation.md) and [live workflow results](https://github.com/Miqueiasdbezerra/db-agent-skills/actions/workflows/validate.yml).
+
+The [subsequent hosted run](https://github.com/Miqueiasdbezerra/db-agent-skills/actions/runs/39976614858) passed all 73 skill tests on Windows Server 2025/Python 3.10.11, including all three actual symlink and both actual junction cases. A later installer-fixture failure in that run had the same temporary-path spelling cause; its fixture was normalized separately. These results do not erase the original local Windows privilege limitation.
 
 Memory remains local and unencrypted, with inherited Windows ACLs. Input screening is heuristic. Filesystem link checks do not provide race-proof isolation against a malicious concurrent writer. Host sandboxing and account permissions remain necessary.
 

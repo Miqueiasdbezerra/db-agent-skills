@@ -46,4 +46,4 @@ The bundled scanner and `.gitignore` are safeguards with limits: ignores do not 
 
 On suspected accidental exposure, stop further dissemination and tell the user what was exposed and where. Follow their direction for cleanup or credential rotation; never claim deleting a local copy revokes a leaked secret.
 
-Publishing, sending messages, spending money, and installing new integrations remain separate actions requiring the appropriate authorization. Preparing this skill locally does not authorize GitHub publication. The owner approved MIT for original project material; the included LICENSE applies to that material. Preserve third-party terms and require separate approval before public distribution.
+Publishing, sending messages, spending money, and installing new integrations remain separate actions requiring the appropriate authorization. The owner approved MIT for original project material and separately approved the skill's initial public source publication; the included LICENSE applies to that material. Preserve third-party terms. A published skill never supplies authority to distribute the user's task data or operate their accounts.

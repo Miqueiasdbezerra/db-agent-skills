@@ -1,6 +1,6 @@
 # Validation record ? WebOps Secretary 1.0.0
 
-Phase 2 date: 2026-10-23. This release candidate has been exercised against a real loopback HTTP service and Chrome, as well as actual Claude Code and Codex CLI sessions. See [host-validation.md](references/host-validation.md) for the evidence matrix and host restrictions.
+Phase 2 and initial source publication date: 2026-10-23. This version has been exercised against a real loopback HTTP service and Chrome, as well as actual Claude Code and Codex CLI sessions. See [host-validation.md](references/host-validation.md) for the evidence matrix and host restrictions.
 
 ## Reproducible local checks
 
@@ -28,8 +28,8 @@ The exact-file release allowlist contains 21 files, including the owner-approved
 
 ## Practical limits
 
-No production account or external administrative site was changed. Claude's observed web actions used a narrow HTTP service adapter, not a browser. Codex CLI's restricted Windows sandbox could read the skill but could not run the installed Python; that limitation was preserved instead of bypassed. A real workflow in the current Codex browser host does not establish access for another installation.
+Compatibility testing changed only a loopback demonstration service with fictional data. Claude's observed web actions used a narrow HTTP service adapter, not a browser. Codex CLI's restricted Windows sandbox could read the skill but could not run the installed Python; that limitation was preserved instead of bypassed. A real workflow in the current Codex browser host does not establish access for another installation.
 
-No distributed exactly-once guarantee, encryption, cross-device memory sync, automatic retention or independent consent verification is supplied. Windows ACLs are inherited. Heuristic scans cannot certify the absence of every secret or personal detail. Private evidence remains outside this package, and MIT is applied to original project material; final publication approval remains pending.
+No distributed exactly-once guarantee, encryption, cross-device memory sync, automatic retention or independent consent verification is supplied. Windows ACLs are inherited. Heuristic scans cannot certify the absence of every secret or personal detail. Private evidence remains outside this package, and MIT is applied to original project material. The owner separately approved initial public source publication.
 
 Further host evaluation: [MANUAL-AGENT-EVAL.md](tests/MANUAL-AGENT-EVAL.md).

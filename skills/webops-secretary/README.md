@@ -29,7 +29,7 @@ Controlled validation on 2026-10-23 confirmed real skill loading in Claude Code 
 
 ## Install locally
 
-Copy the complete `webops-secretary` folder, including its supporting files, into one supported discovery location. The source folder can stay in the future `db-agent-skills/skills/` library; installing a copy is a separate optional step.
+Copy the complete `webops-secretary` folder, including its supporting files, into one supported discovery location. The source folder can stay in the `db-agent-skills/skills/` library; installing a copy is a separate optional step.
 
 | Host and scope | Destination |
 | --- | --- |
@@ -138,6 +138,6 @@ webops-secretary/
 
 ## Publication and licensing
 
-This package is prepared locally for the future `db-agent-skills` repository. No GitHub publication, global skill installation, or public release is performed by these instructions. All supplied examples are fictional. Filled journals, real procedures, screenshots, downloads, and databases stay private and outside the repository.
+This skill's source is published in [db-agent-skills](https://github.com/Miqueiasdbezerra/db-agent-skills), with the owner's approval on 2026-10-23. Installation instructions do not themselves perform a global installation or publish user data. All supplied examples are fictional. Filled journals, real procedures, screenshots, downloads, and databases stay private and outside the repository.
 
 Original project material is licensed under [MIT](LICENSE). Copyright (c) 2026 Miqueias Durans Bezerra. Third-party components, if added, retain their own notices and terms. Applying this license does not authorize a GitHub push or public profile change.

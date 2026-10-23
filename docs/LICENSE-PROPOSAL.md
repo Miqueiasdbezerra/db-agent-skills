@@ -16,7 +16,7 @@ No existing third-party notice was removed or reassigned. External tools and pin
 
 ## Release status
 
-MIT application is complete. Public repository creation, pushing files and changing the GitHub profile remain subject to separate final owner approval of the licensed bytes and hashes. The local candidate does not claim that a GitHub release or remote CI run has occurred.
+MIT application is complete. The owner separately approved public repository creation, pushing the licensed files and the reviewed GitHub profile update; initial source publication occurred on 2026-10-23. This records source publication, not a tagged GitHub Release. Hosted CI results are tracked in the [validation record](validation.md) and [workflow runs](https://github.com/Miqueiasdbezerra/db-agent-skills/actions/workflows/validate.yml).
 
 The publication checker verifies the confirmed notice, standard MIT text and matching repository/standalone license copies, allowing normal line-ending conversion. The external delivery manifest records the exact delivered file and ZIP hashes.
 

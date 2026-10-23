@@ -1,6 +1,6 @@
 # Validation and compatibility
 
-Release candidate: WebOps Secretary 1.0.0, reviewed locally on 2026-10-23. This repository is a publication preview; it has not been pushed or released. The owner approved MIT for original project files, with the copyright holder Miqueias Durans Bezerra; publication approval remains pending.
+WebOps Secretary 1.0.0 was reviewed locally and its source published with explicit owner approval on 2026-10-23. Original project files use the owner-approved MIT license, with the copyright holder Miqueias Durans Bezerra. Source publication does not itself mean a tagged GitHub Release exists.
 
 ## What was actually run
 
@@ -11,9 +11,13 @@ Release candidate: WebOps Secretary 1.0.0, reviewed locally on 2026-10-23. This 
 | Current Codex host + Chrome | Live information lookup, form create/edit, file chooser/upload, committed-save error recovery, new-tab resumption and duplicate prevention passed | Current host supplied browser tools and an executable Python |
 | Claude Code CLI 2.1.302 | Actual Skill invocation, private memory, fresh-session recovery and real loopback form/edit/multipart upload passed | Service adapter, not a Claude browser test; explicit invocation only |
 | Codex CLI 0.162.0-alpha.17.2 | Official app-server enumerated enabled repo skill; two model sessions read its entrypoint/references | Installed Python could not execute in this Windows workspace-write sandbox; helper success is not claimed for that CLI |
-| Hosted CI | Workflow prepared | No GitHub Actions run has occurred |
+| Initial hosted CI, Python 3.10 | Ubuntu: 102 tests run, 100 passed, 2 Windows-only junction skips; Windows: failed on temporary-path fixture comparisons | Run [39975784159](https://github.com/Miqueiasdbezerra/db-agent-skills/actions/runs/39975784159); see the targeted correction below and current workflow results |
 
-The repository suite passed all 17 tests locally (14 installer boundary/rollback tests and 3 license-integrity tests), with no skips. Across the three distinct suites, 102 tests ran: 99 passed, 3 skipped, no failures/errors. The new license tests reject missing or mismatched standalone terms, altered owner/terms and inconsistent catalog metadata, and accept matching approved terms with normal line-ending conversion. Do not label prepared CI as executed.
+The repository suite passed all 17 tests locally (14 installer boundary/rollback tests and 3 license-integrity tests), with no skips. Across the three distinct local suites, 102 tests ran: 99 passed, 3 skipped, no failures/errors. The license tests reject missing or mismatched standalone terms, altered owner/terms and inconsistent catalog metadata, and accept matching approved terms with normal line-ending conversion.
+
+The first hosted Windows run exposed a fixture portability issue: temporary paths could use Windows 8.3 spelling while the guarded helper returned the resolved spelling. The [targeted correction](https://github.com/Miqueiasdbezerra/db-agent-skills/commit/dc9f3ca72129b056ea122d67ac4e5bbaf82e4906) resolves the temporary fixture roots in the tests. It leaves the runtime filesystem guards unchanged. The initial run remains recorded as failed; check the [live workflow results](https://github.com/Miqueiasdbezerra/db-agent-skills/actions/workflows/validate.yml) for subsequent runs rather than inferring a pass from the correction.
+
+The [subsequent hosted run](https://github.com/Miqueiasdbezerra/db-agent-skills/actions/runs/39976614858) passed all 73 skill tests on Windows Server 2025/Python 3.10.11, including the three actual symlink and two actual junction cases. It then exposed the same temporary-path spelling issue in one installer fixture. That fixture now also resolves its temporary root before installing metadata mocks. No runtime guard or assertion was weakened. This hosted Windows evidence is distinct from the three skips on the original local Windows machine.
 
 ## Reproduce without accounts or dependencies
 
@@ -42,7 +46,7 @@ Claude completed its separately scoped service journey in fresh real CLI session
 
 ## Three symlink skips and alternatives
 
-The Windows host does not grant ordinary symbolic-link creation to these tests. The three real-link cases remain explicitly skipped. Two actual Windows junction checks pass; six portable tests inject symlink/reparse metadata and verify the refusal paths without requiring OS link-creation privilege. Those alternatives validate the logic but do not count as real symlink execution. The prepared Linux/Windows CI matrix is intended to exercise supported cases after publication; no remote result is claimed.
+The original local Windows host does not grant ordinary symbolic-link creation to these tests. Its three real-link cases remain explicitly skipped. Two actual Windows junction checks pass locally; six portable tests inject symlink/reparse metadata and verify the refusal paths without requiring OS link-creation privilege. Those alternatives validate the logic but do not count as real symlink execution. In the initial hosted Ubuntu job, the actual symlink cases passed and two Windows-only junction cases were skipped. These are distinct platform results; Linux skips do not replace or erase the three local Windows skips.
 
 ## Remaining limits and release gates
 
@@ -52,6 +56,6 @@ The Windows host does not grant ordinary symbolic-link creation to these tests. 
 - SQLite is unencrypted, with inherited Windows ACLs; existing POSIX directory permissions need separate review. No cross-device sync or automatic retention is supplied.
 - Credential/file/link checks are conservative heuristics, not complete prevention of personal-data disclosure or malicious concurrent filesystem changes.
 - Local journaling cannot guarantee exactly-once remote effects. Use supported remote idempotency and reconcile uncertain results.
-- MIT is applied to original files. The owner must review the exact licensed tree, archives and profile and give separate approval before any GitHub action. See [licensing record](LICENSE-PROPOSAL.md).
+- MIT is applied to original files. The owner explicitly approved initial publication; new account operations and materially different publication actions still need applicable authority. See the [licensing record](LICENSE-PROPOSAL.md).
 
 Detailed skill instructions and evidence distinctions: [host validation](../skills/webops-secretary/references/host-validation.md).

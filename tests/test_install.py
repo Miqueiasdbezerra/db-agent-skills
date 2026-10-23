@@ -19,7 +19,9 @@ class InstallationTests(unittest.TestCase):
     def setUp(self):
         self.temporary = tempfile.TemporaryDirectory(prefix="db-install-test-")
         self.addCleanup(self.temporary.cleanup)
-        self.base = Path(self.temporary.name)
+        # Match install()'s resolved project paths when Windows TEMP uses an
+        # 8.3 alias, so path-specific metadata mocks intercept the destination.
+        self.base = Path(self.temporary.name).resolve()
         self.project = self.base / "project"
         self.project.mkdir()
         (self.project / ".git").mkdir()

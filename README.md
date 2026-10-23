@@ -2,7 +2,9 @@
 
 Reusable agent skills with explicit authorization boundaries, private operational memory, and reproducible checks.
 
-**MIT-licensed local release candidate. Public publication awaits the owner's final approval.** Version 1.0.0 identifies this prepared package; it is not a published GitHub release.
+**MIT-licensed public source, published with the owner's approval on 2026-10-23.** WebOps Secretary is version 1.0.0; source publication is separate from a tagged GitHub Release.
+
+[![Validation](https://github.com/Miqueiasdbezerra/db-agent-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/Miqueiasdbezerra/db-agent-skills/actions/workflows/validate.yml)
 
 [Português](README.pt-BR.md) · [Validation evidence](docs/validation.md) · [Security](SECURITY.md) · [Contributing](CONTRIBUTING.md) · [License](LICENSE) · [Licensing record](docs/LICENSE-PROPOSAL.md)
 
@@ -10,7 +12,7 @@ Reusable agent skills with explicit authorization boundaries, private operationa
 
 | Skill | Version | Purpose | Status |
 | --- | --- | --- | --- |
-| [WebOps Secretary](skills/webops-secretary/README.md) | 1.0.0 | Authorized administrative web work with durable checkpoints and result reconciliation | Validated within documented limits; publication approval pending |
+| [WebOps Secretary](skills/webops-secretary/README.md) | 1.0.0 | Authorized administrative web work with durable checkpoints and result reconciliation | Published; validated within documented limits |
 
 WebOps Secretary helps an agent locate information, fill forms, upload fictional or authorized files, edit records, recover from failures, and resume interrupted work. The agent inspects the current site, records intent before a change, verifies the persisted result, and updates a private playbook.
 
@@ -36,11 +38,11 @@ Observed locally on 2026-10-23. The [validation record](docs/validation.md) sepa
 | Standalone Codex CLI 0.162.0-alpha.17.2 | App-server enumerated the enabled repository skill; model sessions read its instructions and references | Python execution was blocked by the Windows sandbox; helper execution in that CLI remains unvalidated |
 | Local automated suites | 102 tests run: 99 passed, 3 skipped, no failures/errors | 73 skill tests (70 passed, 3 skipped), 17 repository tests (14 installer, 3 license integrity), 12 real HTTP demo tests |
 
-The three skips are real symlink cases on Windows. Six portable metadata tests and two actual Windows junction tests passed; they supplement, rather than replace, actual symlink execution. Remote CI has not run. These results do not establish unrestricted end-to-end compatibility, and host permissions were preserved throughout validation.
+The three local skips are real symlink cases on Windows. Six portable metadata tests and two actual Windows junction tests passed; they supplement, rather than replace, actual symlink execution. Hosted CI has run: the initial Ubuntu/Python 3.10 job ran 102 tests, with 100 passed and two Windows-only junction skips, while Windows exposed a temporary-path fixture issue. See the [validation record](docs/validation.md) and [live workflow status](https://github.com/Miqueiasdbezerra/db-agent-skills/actions/workflows/validate.yml) for the correction and subsequent results. These results do not establish unrestricted end-to-end compatibility, and host permissions were preserved throughout validation.
 
 ## Install into one project
 
-Review the candidate and license status first. From this library's root, choose one command and replace `../my-test-project` with an existing Git project's root:
+Review the skill and its license first. From this library's root, choose one command and replace `../my-test-project` with an existing Git project's root:
 
 ```powershell
 python -B scripts/install_skill.py --host codex --project ../my-test-project
@@ -90,7 +92,7 @@ python -B -m unittest discover -s examples/local-demo -p test_server.py -v
 
 Tests use isolated fictional fixtures. Actual symlink creation can be unavailable on Windows; those tests remain explicitly skipped. Portable metadata tests cover the rejection logic, and Windows junction tests provide an additional real filesystem check. See [validation evidence](docs/validation.md) for results and the precise remaining gaps.
 
-The included [CI workflow](.github/workflows/validate.yml) is prepared for Windows and Linux. Its existence is not evidence that remote CI has run. Review all files and archive members before any publication; ignore rules cannot remove already tracked data.
+The included [CI workflow](.github/workflows/validate.yml) runs on Windows and Linux. Check its [actual job results](https://github.com/Miqueiasdbezerra/db-agent-skills/actions/workflows/validate.yml); a badge or workflow file alone does not establish host compatibility. Review all files and archive members before distributing changes; ignore rules cannot remove already tracked data.
 
 ## Repository map
 
@@ -101,11 +103,11 @@ scripts/install_skill.py  Guarded project-local installer
 tests/                    Installer boundary and rollback tests
 docs/validation.md        Evidence, limits, and remaining validation work
 docs/LICENSE-PROPOSAL.md   Confirmed license decision and provenance
-catalog.json              Machine-readable candidate inventory
+catalog.json              Machine-readable skill inventory
 ```
 
 ## License and publication
 
-Original project material is licensed under [MIT](LICENSE). Copyright (c) 2026 Miqueias Durans Bezerra. The standalone skill carries an identical LICENSE. The owner authorized local license application; public publication still requires separate final approval. [Third-party notices](THIRD_PARTY_NOTICES.md) describe dependencies and external services separately from this authored material.
+Original project material is licensed under [MIT](LICENSE). Copyright (c) 2026 Miqueias Durans Bezerra. The standalone skill carries an identical LICENSE. The owner authorized license application and the initial public publication. [Third-party notices](THIRD_PARTY_NOTICES.md) describe dependencies and external services separately from this authored material.
 
-This draft prepares a future public repository; it does not create or publish one, change an existing repository's visibility, or grant permission to operate anyone's accounts.
+Publishing this library does not grant permission to operate anyone's accounts. Each web task requires authorization for its own target and effects.
