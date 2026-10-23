@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "name": "db-agent-skills",
+  "state": "licensed-release-candidate",
+  "publication": "not-published",
+  "license": {
+    "status": "owner-approved-applied",
+    "effective_license": "MIT",
+    "copyright": "Copyright (c) 2026 Miqueias Durans Bezerra",
+    "file": "LICENSE",
+    "record": "docs/LICENSE-PROPOSAL.md",
+    "third_party_notices": "THIRD_PARTY_NOTICES.md",
+    "normalized_sha256": "6702e4cac71885c0666bba416ef258ef3473cac7cabc71a474b756a272434a1a"
+  },
+  "skills": [
+    {
+      "name": "webops-secretary",
+      "display_name": "WebOps Secretary",
+      "version": "1.0.0",
+      "path": "skills/webops-secretary",
+      "hosts": [
+        "codex",
+        "claude-code"
+      ],
+      "installation_scope": "project",
+      "status": "validated-with-documented-host-limits",
+      "evidence": "docs/validation.md",
+      "runtime": "Python 3.10+ standard library for helpers",
+      "requires_host_browser_or_connector": true,
+      "bundles_browser": false,
+      "stores_memory_outside_repository": true,
+      "license": "MIT"
+    }
+  ]
+}

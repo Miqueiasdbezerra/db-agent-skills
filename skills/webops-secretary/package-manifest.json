@@ -1,0 +1,30 @@
+{
+  "name": "webops-secretary",
+  "display_name": "WebOps Secretary",
+  "version": "1.0.0",
+  "files": [
+    ".gitignore",
+    "LICENSE",
+    "README.md",
+    "SKILL.md",
+    "VALIDATION.md",
+    "examples/example-task.md",
+    "examples/simulated_browser.py",
+    "package-manifest.json",
+    "references/browser-workflows.md",
+    "references/host-validation.md",
+    "references/memory-system.md",
+    "references/security.md",
+    "scripts/memory.py",
+    "scripts/package_skill.py",
+    "templates/playbook.md",
+    "templates/task-journal.md",
+    "tests/MANUAL-AGENT-EVAL.md",
+    "tests/test_memory.py",
+    "tests/test_package.py",
+    "tests/test_structure.py",
+    "tests/test_workflows.py"
+  ],
+  "license": "MIT",
+  "copyright": "Copyright (c) 2026 Miqueias Durans Bezerra"
+}

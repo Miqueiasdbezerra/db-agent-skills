@@ -1,0 +1,36 @@
+# Private operational data belongs outside this skill and public repository.
+.env
+.env.*
+*.key
+*.pem
+*.p12
+*.pfx
+*.sqlite
+*.sqlite3
+*.db
+*.log
+*.har
+cookies*
+credentials*
+secrets*
+private-memory/
+memory.json
+memory.jsonl
+journal.json
+journal.jsonl
+state.json
+history.json
+task-journals/
+sessions/
+uploads/
+downloads/
+logs/
+# Generated artifacts are excluded from publication.
+__pycache__/
+*.py[cod]
+*.zip
+.coverage
+htmlcov/
+.pytest_cache/
+.DS_Store
+Thumbs.db

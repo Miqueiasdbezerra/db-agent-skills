@@ -1,0 +1,34 @@
+name: Validate local skill library
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  stdlib-checks:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4, verified 2026-10-23
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5, verified 2026-10-23
+        with:
+          python-version: '3.10'
+      - name: Skill unit tests
+        run: python -B -m unittest discover -s skills/webops-secretary/tests -v
+      - name: Skill publication guard
+        run: python -B skills/webops-secretary/scripts/package_skill.py check
+      - name: Project-local installer tests
+        run: python -B -m unittest discover -s tests -v
+      - name: Fictional HTTP demonstration tests
+        run: python -B -m unittest discover -s examples/local-demo -p test_server.py -v
+      - name: Reproducible fictional service journey
+        run: python -B examples/local-demo/reproduce.py
+      - name: Exact publication membership and text review
+        run: python -B scripts/review_publication.py
